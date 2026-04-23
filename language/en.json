@@ -1,0 +1,150 @@
+{
+  "discord-relay": {
+    "settings": {
+      "discordBridgeIsActive":     "Enable Discord Bridge",
+      "discordBridgeIsActiveHint": "Enables or disables the Discord voice relay module",
+      "relayUserId":               "Active Relay User ID",
+      "relayUserIdHint":           "The Foundry user ID who is currently the active relay",
+      "overlayPopup":              "Where to open the overlay",
+      "overlayPopupHint":          "Choose how to open the Discord Streamkit overlay",
+      "overlayPopupTab":           "New tab",
+      "overlayPopupWindow":        "New window",
+      "autoStart":                 "Auto-start relay",
+      "autoStartHint":             "Automatically starts the relay on world load if your user is set as the active relay user",
+      "openRelayMenu":           "Discord Relay",
+      "openRelayMenuHint":       "Open the Discord relay management window",
+      "openRelayMenuButton":     "Open relay",
+      "openGuideMenu":           "Discord Relay Guide",
+      "openGuideMenuHint":       "Open the relay setup guide",
+      "openGuideMenuButton":     "Open guide"
+    },
+    "relayStatus": {
+      "OFFLINE": "OFFLINE (Use the guide to set up the relay)",
+      "READY":   "READY (Ready to use. LMB — set as the active relay)",
+      "ONLINE":  "ONLINE (This is the active relay. LMB — disable the relay)",
+      "STALE":   "STALE (StreamKit signal was lost. LMB — disable the relay)"
+    },
+    "discordMenu": {
+      "windowTitle":                "Discord Relay",
+      "headerInfo":                 "Open the \"Guide\" tab to get relay setup instructions",
+      "headerWarning":              "Temporary: if the GM minimizes the FoundryVTT window for more than a minute, the relay temporarily loses connection",
+      "headerStatusLabel":          "Relay status:",
+      "headerRelayButtonActivate":  "Enable relay",
+      "headerRelayButtonDeactivate":"Disable relay",
+      "iconsTooltip":               "You can drag a profile from the Discord voice channel user list into the FoundryVTT user list input to link accounts",
+      "relayStatusConfig": {
+        "voiceUrlLabel":              "Voice channel link",
+        "voiceUrlPlaceholder":        "SERVER_ID/VOICE_ID",
+        "voiceUrlHint":               "RMB-click a voice channel in Discord → \"Copy Link\" → paste the link into this field. Alternatively, paste the SERVER_ID/CHANNEL_ID directly.",
+        "yesICanReadLabel":           "Confirmation: \"FoundryVTT is open in a browser\"",
+        "yesICanReadHint":            "The relay works only if FoundryVTT is open in a browser. Please confirm that this window is open in a browser.",
+        "disableRelayButtonTooltip":  "Complete all actions below to enable the relay"
+      },
+      "foundryUserList": {
+        "headerStatus":       "Status",
+        "headerUser":         "User",
+        "headerDiscord":      "Discord",
+        "placeholderDiscord": "Enter Discord ID or username",
+        "noLink":             "Not linked",
+        "unlinkProfile":      "Unlink profile",
+        "delete":             "Delete",
+        "awatingDataTooltip": "As soon as a profile with this nickname/ID is found, it will be added automatically"
+      },
+      "voiceChat": {
+        "chatActiveHeader":   "Discord voice chat",
+        "chatInactiveHeader": "Enter Discord chat ID",
+        "chatInactiveWarning":"Relay is inactive",
+        "profileTooltip":     "Drag the profile into the input field in the list on the left to link it to a FoundryVTT user"
+      },
+      "log": {
+        "header": "Recent actions:"
+      },
+      "guide": {
+        "before": {
+          "title": "Before you start:",
+          "items": {
+            "1": "The relay must be active for at least 1 user. That user must be selected as the \"Active relay\" — you can do this in the user list on the Relay tab.",
+            "2": "The relay can be started only in a browser. Even if you open the overlay window in the FoundryVTT desktop app, it will not work.",
+            "3": "Temporary issue: if the GM (world host) minimizes the FoundryVTT window for more than a minute, all relay players temporarily lose connection."
+          }
+        },
+        "terms": {
+          "title": "Terms",
+          "items": {
+            "1": "Relay: a script that runs in a browser and forwards events from a Discord voice channel to FoundryVTT",
+            "2": "Relay player: a player who started the relay"
+          }
+        },
+        "prep": {
+          "title": "Preparing and activating the relay",
+          "intro": "All further actions must be performed by the relay player.",
+          "tamper": {
+            "title": "1) Installing and configuring TamperMonkey",
+            "items": {
+              "1": "Install the TamperMonkey extension in your browser and enable it",
+              "2": "After installation, open your browser's extension settings, enable \"Developer mode\", and configure TamperMonkey to allow user scripts on streamkit.discord.com:",
+              "3": "Next, open the TamperMonkey Dashboard. Usually you can open it from the extensions menu in the top-right corner of your browser.",
+              "4": "In the Dashboard, find the [+] button to add a script. Usually it is above the script list, next to \"Installed Scripts\".",
+              "5Prefix": "A script code editor will open. Copy the script below and paste it here, then save the script (",
+              "5Suffix": "or \"File\" → \"Save\" in the top-left)",
+              "6": "Return to the script Dashboard. A script called \"Streamkit Speaking Relay\" should appear in the script list. Enable it if it is not already enabled."
+            },
+            "browsers": {
+              "firefox":   "Mozilla Firefox: Enabled by default",
+              "opera":     "Opera GX: \"Details\" → \"Allow user scripts\"",
+              "chrome":    "Chrome: \"Details\" → \"Site access\", choose \"On all sites\" (Or \"On specific sites\" and enter \"https://streamkit.discord.com\")",
+              "edge":      "Microsoft Edge:",
+              "edgeItems": {
+                "1": "\"Details\" → \"Site access\", choose \"On all sites\" (Or \"On specific sites\" and enter \"https://streamkit.discord.com\")",
+                "2": "\"Allow user scripts\""
+              }
+            },
+            "script": {
+              "title":      "TamperMonkey script",
+              "copy":       "Copy",
+              "copied":     "Copied",
+              "copyTooltip":"Copy the script",
+              "copyError":  "Failed to copy the script",
+              "loadError":  "Failed to load the script."
+            }
+          }
+        },
+        "launch": {
+          "title": "2) Launching the relay",
+          "items": {
+            "1":  "Join the FoundryVTT world as any user via a browser and open the Discord Streamkit overlay window.",
+            "1a": "You can do this via the FoundryVTT settings menu, the button in the VisualNovelDialogues Theater, or the console command DiscordBridge.openMenu().",
+            "2":  "Enter the link to the Discord voice channel you need into the \"Voice channel link\" field and enable the checkbox below.",
+            "2a": "You can get a Discord voice channel link by RMB-clicking it and selecting \"Copy Link\". After pasting, the link will be converted to SERVER_ID/CHANNEL_ID format automatically.",
+            "2b": "Alternatively, if Discord Developer Mode is enabled, you can manually copy the server ID and voice channel ID and enter them as SERVER_ID/CHANNEL_ID.",
+            "3":  "Click the \"Enable relay\" button",
+            "4":  "Now, if everything is OK, all FoundryVTT users will see the Discord voice channel and all of its participants."
+          }
+        },
+        "notes": {
+          "title": "Notes:",
+          "items": {
+            "1": "You must be in this voice channel to receive the \"Start speaking\" and \"Stop speaking\" events",
+            "2": "All events (\"start/stop speaking\", \"user connected/disconnected\", etc.) will be sent to FoundryVTT via hooks, which you can use in macros and other modules.",
+            "3": "When you close the Discord Streamkit overlay window, the relay will lose signal and will be marked as STALE",
+            "4": "The VisualNovelDialogues module automatically receives relay events. You can configure how VisualNovelDialogues handles relay events in its settings."
+          }
+        }
+      }
+    },
+    "tabs": {
+      "relay": "Relay",
+      "guide": "Guide"
+    },
+    "general": {
+      "unknownVoiceChat": "/Unknown voice chat/",
+      "voiceChatNotSet":  "/Voice channel not set/"
+    },
+    "notifications": {
+      "voiceChatDataUpdated": "Voice chat data updated"
+    },
+    "errors": {
+      "listNoStatus": "Error: status is unknown. Try reopening the window"
+    }
+  }
+}

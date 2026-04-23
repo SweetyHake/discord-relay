@@ -1,0 +1,107 @@
+<section class="discord-relay-page discord-relay-page--guide guide">
+
+  <section class="guide-section">
+    <h2 class="guide-title">{{localize "discord-relay.discordMenu.guide.before.title"}}</h2>
+    <ul class="guide-list">
+      <li>{{localize "discord-relay.discordMenu.guide.before.items.1"}}</li>
+      <li>{{localize "discord-relay.discordMenu.guide.before.items.2"}}</li>
+      <li>{{localize "discord-relay.discordMenu.guide.before.items.3"}}</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2 class="guide-title">{{localize "discord-relay.discordMenu.guide.terms.title"}}</h2>
+    <ul class="guide-list">
+      <li>{{localize "discord-relay.discordMenu.guide.terms.items.1"}}</li>
+      <li>{{localize "discord-relay.discordMenu.guide.terms.items.2"}}</li>
+    </ul>
+  </section>
+
+  <section class="guide-section">
+    <h2 class="guide-title">{{localize "discord-relay.discordMenu.guide.prep.title"}}</h2>
+    <p class="guide-paragraph">{{localize "discord-relay.discordMenu.guide.prep.intro"}}</p>
+
+    <h3 class="guide-subtitle">{{localize "discord-relay.discordMenu.guide.prep.tamper.title"}}</h3>
+    <ul class="guide-list">
+      <li>{{localize "discord-relay.discordMenu.guide.prep.tamper.items.1"}}</li>
+      <li>
+        {{localize "discord-relay.discordMenu.guide.prep.tamper.items.2"}}
+        <ul class="guide-list nested">
+          <li>{{localize "discord-relay.discordMenu.guide.prep.tamper.browsers.firefox"}}</li>
+          <li>{{localize "discord-relay.discordMenu.guide.prep.tamper.browsers.opera"}}</li>
+          <li>{{localize "discord-relay.discordMenu.guide.prep.tamper.browsers.chrome"}}</li>
+          <li>
+            {{localize "discord-relay.discordMenu.guide.prep.tamper.browsers.edge"}}
+            <ul class="guide-list nested">
+              <li>{{localize "discord-relay.discordMenu.guide.prep.tamper.browsers.edgeItems.1"}}</li>
+              <li>{{localize "discord-relay.discordMenu.guide.prep.tamper.browsers.edgeItems.2"}}</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>{{localize "discord-relay.discordMenu.guide.prep.tamper.items.3"}}</li>
+      <li>{{localize "discord-relay.discordMenu.guide.prep.tamper.items.4"}}</li>
+      <li>
+        {{localize "discord-relay.discordMenu.guide.prep.tamper.items.5Prefix"}}
+        <kbd>Ctrl</kbd> + <kbd>S</kbd>
+        {{localize "discord-relay.discordMenu.guide.prep.tamper.items.5Suffix"}}
+      </li>
+      <li>{{localize "discord-relay.discordMenu.guide.prep.tamper.items.6"}}</li>
+    </ul>
+
+    <details class="guide-script">
+      <summary class="guide-script__summary">
+        <span>{{localize "discord-relay.discordMenu.guide.prep.tamper.script.title"}}</span>
+        <button
+          type="button"
+          class="btn"
+          data-guide-copy="script"
+          data-tooltip="{{localize "discord-relay.discordMenu.guide.prep.tamper.script.copyTooltip"}}"
+          data-label-default="{{localize "discord-relay.discordMenu.guide.prep.tamper.script.copy"}}"
+          data-label-copied="{{localize "discord-relay.discordMenu.guide.prep.tamper.script.copied"}}"
+          {{#unless guideScript}}disabled{{/unless}}
+        >
+          {{localize "discord-relay.discordMenu.guide.prep.tamper.script.copy"}}
+        </button>
+      </summary>
+      <div class="guide-script__body">
+        {{#if guideScript}}
+          <pre><code data-guide-script>{{guideScript}}</code></pre>
+        {{else}}
+          <div class="guide-script__error">
+            {{localize "discord-relay.discordMenu.guide.prep.tamper.script.loadError"}}
+          </div>
+        {{/if}}
+      </div>
+    </details>
+
+    <h3 class="guide-subtitle">{{localize "discord-relay.discordMenu.guide.launch.title"}}</h3>
+    <ul class="guide-list">
+      <li>
+        {{localize "discord-relay.discordMenu.guide.launch.items.1"}}
+        <ul class="guide-list nested">
+          <li>{{localize "discord-relay.discordMenu.guide.launch.items.1a"}}</li>
+        </ul>
+      </li>
+      <li>
+        {{localize "discord-relay.discordMenu.guide.launch.items.2"}}
+        <ul class="guide-list nested">
+          <li>{{localize "discord-relay.discordMenu.guide.launch.items.2a"}}</li>
+          <li>{{localize "discord-relay.discordMenu.guide.launch.items.2b"}}</li>
+        </ul>
+      </li>
+      <li>{{localize "discord-relay.discordMenu.guide.launch.items.3"}}</li>
+      <li>{{localize "discord-relay.discordMenu.guide.launch.items.4"}}</li>
+    </ul>
+
+    <h4 class="guide-note-title">{{localize "discord-relay.discordMenu.guide.notes.title"}}</h4>
+    <ul class="guide-list">
+      <li>{{localize "discord-relay.discordMenu.guide.notes.items.1"}}</li>
+      <li>{{localize "discord-relay.discordMenu.guide.notes.items.2"}}</li>
+      <li>{{localize "discord-relay.discordMenu.guide.notes.items.3"}}</li>
+      <li>{{localize "discord-relay.discordMenu.guide.notes.items.4"}}</li>
+    </ul>
+
+  </section>
+
+</section>

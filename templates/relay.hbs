@@ -1,0 +1,40 @@
+<section class="discord-relay-page discord-relay-page--relay flexcol">
+
+  {{!-- Relay status header --}}
+  <div class="relay-status">
+    <header class="flexrow">
+      <i class="fas fa-tower-broadcast"></i>
+      <label>{{localize "discord-relay.discordMenu.headerStatusLabel"}}</label>
+      <span class="relay-status__text"></span>
+      <button class="btn" type="button" data-action="toggleRelay">
+        <i class="fas fa-power-off"></i>
+        <span></span>
+      </button>
+    </header>
+
+    <div class="relay-status__config">
+      <div class="form-group" data-name="voiceUrl">
+        <div class="form-fields">
+          <label>{{localize "discord-relay.discordMenu.relayStatusConfig.voiceUrlLabel"}}</label>
+          <input
+            type="text"
+            name="voiceUrl"
+            value="{{voiceChatData._fullId}}"
+            placeholder="{{localize "discord-relay.discordMenu.relayStatusConfig.voiceUrlPlaceholder"}}"
+          >
+          <p class="hint">{{localize "discord-relay.discordMenu.relayStatusConfig.voiceUrlHint"}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Left: Discord → Foundry mapping --}}
+  <div class="relay-panel">
+    <header class="relay-panel__header">
+      <i class="fab fa-discord"></i>
+      <span>{{localize "discord-relay.discordMenu.foundryUserList.headerDiscord"}}</span>
+    </header>
+    <div class="mapping-list"></div>
+  </div>
+
+</section>
