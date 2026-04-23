@@ -9,7 +9,7 @@ export class DiscordMenu extends HandlebarsApplicationMixin(ApplicationV2) {
   static DEFAULT_OPTIONS = {
     id:      "discord-relay",
     classes: ["discord-relay-app"],
-    position: { width: 700, height: "auto" },
+    position: { width: 700, height: 600 },
     window: {
       resizable: false,
       title:     `${MODULE_ID}.discordMenu.windowTitle`,
@@ -48,6 +48,14 @@ export class DiscordMenu extends HandlebarsApplicationMixin(ApplicationV2) {
   _configureRenderOptions(options) {
     super._configureRenderOptions(options);
     options.parts = [this._page];
+  }
+
+  async _preparePartContext(partId, context, options) {
+    await super._preparePartContext(partId, context, options);
+    if (partId === "guide") {
+      context.guideScript = await this._loadGuideScript();
+    }
+    return context;
   }
 
   async _onRender(_context, options) {
