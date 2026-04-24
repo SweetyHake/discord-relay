@@ -32,7 +32,7 @@ export function registerSettings() {
   game.settings.register(MODULE_ID, "relayUserId", {
     name: loc("relayUserId"),
     hint: loc("relayUserIdHint"),
-    scope: "world", config: true, type: String, default: "",
+    scope: "world", config: false, type: String, default: "",
     onChange: () => Hooks.callAll(HOOKS.RENDER_LISTS),
   });
 
