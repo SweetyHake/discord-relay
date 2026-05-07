@@ -36,7 +36,6 @@ export class DiscordMenu extends HandlebarsApplicationMixin(ApplicationV2) {
   async _prepareContext(_options) {
     let voiceChatData = getSettings("discordVoiceChatData");
     voiceChatData.voiceUrlIsValid = /\d{17,20}\/\d{17,20}/.test(voiceChatData._fullId ?? "");
-    voiceChatData.browserConfirmation = getSettings("browserConfirmation");
     if (!voiceChatData.name) {
       voiceChatData.name = (voiceChatData.guild_id && voiceChatData.channel_id)
         ? modLoc("general.unknownVoiceChat")
@@ -138,16 +137,7 @@ export class DiscordMenu extends HandlebarsApplicationMixin(ApplicationV2) {
     voiceInput?.addEventListener("input", debouncedInput);
     voiceInput?.addEventListener("paste", () => setTimeout(() => processVoiceUrl(voiceInput.value), 0));
 
-    const checkbox = el.querySelector("input[name='browserConfirmation']");
-    const cbIcon   = el.querySelector(".relay-status__config [data-name='browserConfirmation'] i");
 
-    checkbox?.addEventListener("change", async e => {
-      const checked = e.target.checked;
-      await requestSettingsUpdate("browserConfirmation", checked);
-      cbIcon?.classList.toggle("fa-circle-check", checked);
-      cbIcon?.classList.toggle("fa-circle-xmark", !checked);
-      this._updateRelayButton(this.element);
-    });
   }
 
   _updateRelayButton(el) {
@@ -156,9 +146,8 @@ export class DiscordMenu extends HandlebarsApplicationMixin(ApplicationV2) {
     if (!btn) return;
 
     const voiceData           = getSettings("discordVoiceChatData", false);
-    const browserConfirmation = getSettings("browserConfirmation", false);
     const voiceUrlIsValid     = /\d{17,20}\/\d{17,20}/.test(voiceData._fullId ?? "");
-    const canEnable           = voiceUrlIsValid && browserConfirmation;
+    const canEnable           = voiceUrlIsValid;
 
     btn.disabled            = !canEnable;
     btn.dataset.tooltip     = canEnable ? "" : modLoc("discordMenu.relayStatusConfig.disableRelayButtonTooltip");

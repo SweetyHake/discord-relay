@@ -47,10 +47,6 @@ export function registerSettings() {
     default: "tab",
   });
 
-  game.settings.register(MODULE_ID, "browserConfirmation", {
-    scope: "client", config: false, type: Boolean, default: false,
-  });
-
   game.settings.register(MODULE_ID, "autoStart", {
     name: loc("autoStart"),
     hint: loc("autoStartHint"),

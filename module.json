@@ -8,18 +8,37 @@
     "verified": "14"
   },
   "socket": true,
-  "authors": [    {
+  "authors": [
+    {
       "name": "SweetyHake",
       "url": "https://boosty.to/sweetyhake",
       "flags": {}
-    }],
-  "esmodules": ["scripts/main.js"],
-  "styles": ["styles/module.css"],
+    }
+  ],
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    {
+      "src": "styles/module.css"
+    }
+  ],
   "url": "https://github.com/SweetyHake/discord-relay",
   "manifest": "https://raw.githubusercontent.com/SweetyHake/discord-relay/refs/heads/main/module.json",
   "download": "https://github.com/SweetyHake/discord-relay/releases/download/14.1.0/module.zip",
   "languages": [
-    { "lang": "en", "name": "English", "path": "lang/en.json" },
-    { "lang": "ru", "name": "Русский", "path": "lang/ru.json" }
-  ]
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "ru",
+      "name": "Русский",
+      "path": "lang/ru.json",
+      "flags": {}
+    }
+  ],
+  "flags": {}
 }

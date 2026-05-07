@@ -195,8 +195,8 @@ export class VoiceActivityRelay {
 
           const normalized = {
             user_id:   discordUserId,
-            mute:      profile?.mute   ?? user?.mute   ?? false,
-            deaf:      profile?.deaf    ?? user?.deaf    ?? false,
+            mute:      user?.mute !== undefined ? user.mute : (profile?.mute ?? false),
+            deaf:      user?.deaf !== undefined ? user.deaf : (profile?.deaf ?? false),
             nick:      profile?.nick    ?? user?.nick    ?? null,
             username:  profile?.username ?? user?.username ?? null,
             avatarUrl: profile?.avatarUrl ?? user?.avatarUrl ?? null,

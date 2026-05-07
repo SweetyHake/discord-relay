@@ -61,43 +61,20 @@
       },
       "guide": {
         "before": {
-          "title": "Before you start:",
+          "title": "Important:",
           "items": {
-            "1": "The relay must be active for at least 1 user. That user must be selected as the \"Active relay\" — you can do this in the user list on the Relay tab.",
-            "2": "The relay can be started only in a browser. Even if you open the overlay window in the FoundryVTT desktop app, it will not work.",
-            "3": "Temporary issue: if the GM (world host) minimizes the FoundryVTT window for more than a minute, all relay players temporarily lose connection."
-          }
-        },
-        "terms": {
-          "title": "Terms",
-          "items": {
-            "1": "Relay: a script that runs in a browser and forwards events from a Discord voice channel to FoundryVTT",
-            "2": "Relay player: a player who started the relay"
+            "1": "Any user can be the relay.",
+            "2": "The relay must be launched in a browser with Tampermonkey and the script installed. Cannot be launched via FLC or native Foundry app."
           }
         },
         "prep": {
-          "title": "Preparing and activating the relay",
-          "intro": "All further actions must be performed by the relay player.",
+          "title": "1) Install and configure TamperMonkey",
           "tamper": {
-            "title": "1) Installing and configuring TamperMonkey",
             "items": {
               "1": "Install the TamperMonkey extension in your browser and enable it",
-              "2": "After installation, open your browser's extension settings, enable \"Developer mode\", and configure TamperMonkey to allow user scripts on streamkit.discord.com:",
-              "3": "Next, open the TamperMonkey Dashboard. Usually you can open it from the extensions menu in the top-right corner of your browser.",
-              "4": "In the Dashboard, find the [+] button to add a script. Usually it is above the script list, next to \"Installed Scripts\".",
-              "5Prefix": "A script code editor will open. Copy the script below and paste it here, then save the script (",
-              "5Suffix": "or \"File\" → \"Save\" in the top-left)",
-              "6": "Return to the script Dashboard. A script called \"Streamkit Speaking Relay\" should appear in the script list. Enable it if it is not already enabled."
-            },
-            "browsers": {
-              "firefox":   "Mozilla Firefox: Enabled by default",
-              "opera":     "Opera GX: \"Details\" → \"Allow user scripts\"",
-              "chrome":    "Chrome: \"Details\" → \"Site access\", choose \"On all sites\" (Or \"On specific sites\" and enter \"https://streamkit.discord.com\")",
-              "edge":      "Microsoft Edge:",
-              "edgeItems": {
-                "1": "\"Details\" → \"Site access\", choose \"On all sites\" (Or \"On specific sites\" and enter \"https://streamkit.discord.com\")",
-                "2": "\"Allow user scripts\""
-              }
+              "2": "After installation, go to your browser's extension settings, enable \"Developer mode\", and configure TamperMonkey to allow user scripts on streamkit.discord.com",
+              "3": "Click on Tampermonkey in the extensions list, then click \"Create a new script\".",
+              "4": "Copy the script below and paste it here, then save the script (Ctrl+S or \"File\" → \"Save\")"
             },
             "script": {
               "title":      "TamperMonkey script",
@@ -107,27 +84,22 @@
               "copyError":  "Failed to copy the script",
               "loadError":  "Failed to load the script."
             }
-          }
-        },
-        "launch": {
-          "title": "2) Launching the relay",
-          "items": {
-            "1":  "Join the FoundryVTT world as any user via a browser and open the Discord Streamkit overlay window.",
-            "1a": "You can do this via the FoundryVTT settings menu, the button in the VisualNovelDialogues Theater, or the console command DiscordBridge.openMenu().",
-            "2":  "Enter the link to the Discord voice channel you need into the \"Voice channel link\" field and enable the checkbox below.",
-            "2a": "You can get a Discord voice channel link by RMB-clicking it and selecting \"Copy Link\". After pasting, the link will be converted to SERVER_ID/CHANNEL_ID format automatically.",
-            "2b": "Alternatively, if Discord Developer Mode is enabled, you can manually copy the server ID and voice channel ID and enter them as SERVER_ID/CHANNEL_ID.",
-            "3":  "Click the \"Enable relay\" button",
-            "4":  "Now, if everything is OK, all FoundryVTT users will see the Discord voice channel and all of its participants."
-          }
-        },
-        "notes": {
-          "title": "Notes:",
-          "items": {
-            "1": "You must be in this voice channel to receive the \"Start speaking\" and \"Stop speaking\" events",
-            "2": "All events (\"start/stop speaking\", \"user connected/disconnected\", etc.) will be sent to FoundryVTT via hooks, which you can use in macros and other modules.",
-            "3": "When you close the Discord Streamkit overlay window, the relay will lose signal and will be marked as STALE",
-            "4": "The VisualNovelDialogues module automatically receives relay events. You can configure how VisualNovelDialogues handles relay events in its settings."
+          },
+          "launch": {
+            "title": "2) Launch the relay",
+            "items": {
+              "1": "Join the FoundryVTT world as any user via a browser and open the Discord Streamkit overlay window.",
+              "2": "Enter the link to the Discord voice channel you need in the \"Voice channel link\" field.",
+              "3": "Click the \"Enable relay\" button.",
+              "4": "After that, Discord users in the voice channel will appear. Link them to Foundry users using the button on the right."
+            }
+          },
+          "notes": {
+            "title": "Note:",
+            "items": {
+              "1": "Don't close the overlay window, otherwise the relay will need to be restarted.",
+              "2": "You can configure the relay opening mode (new tab or new window) in the module settings. You can also enable auto-start when entering the world."
+            }
           }
         }
       }

@@ -13,8 +13,8 @@ export class VoiceChat {
     if (!userId) return null;
     return {
       userId,
-      mute:     data.mute ?? data.raw?.mute ?? userRaw.voice_state?.mute ?? userRaw.voice_state?.self_mute ?? false,
-      deaf:    data.deaf ?? data.raw?.deaf ?? userRaw.voice_state?.deaf ?? userRaw.voice_state?.self_deaf ?? false,
+      mute:     data.mute !== undefined ? data.mute : (userRaw.voice_state?.mute || userRaw.voice_state?.self_mute || false),
+      deaf:     data.deaf !== undefined ? data.deaf : (userRaw.voice_state?.deaf || userRaw.voice_state?.self_deaf || false),
       nick:     data.nick ?? data.raw?.nick ?? userRaw.global_name ?? null,
       username: data.name ?? userRaw.username ?? null,
       avatarUrl: data.avatarUrl ?? null,
