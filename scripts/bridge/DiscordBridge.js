@@ -44,7 +44,8 @@ class DiscordBridgeClass {
   }
 
   async openMenu(options = {}) {
-    const existing = foundry.applications.instances.get("discord-relay");
+    const id = `discord-relay-${options.page ?? "relay"}`;
+    const existing = foundry.applications.instances.get(id);
     if (existing) {
       if (options.page && existing._page !== options.page) {
         existing._page = options.page;

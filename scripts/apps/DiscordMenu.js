@@ -25,6 +25,7 @@ export class DiscordMenu extends HandlebarsApplicationMixin(ApplicationV2) {
   };
 
   constructor(options = {}) {
+    options.id = `discord-relay-${options.page ?? "relay"}`;
     super(options);
     this._page               = options.page ?? "relay";
     this._tickerId           = null;
