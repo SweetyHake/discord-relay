@@ -2,7 +2,7 @@
   "id": "discord-relay",
   "title": "Discord Relay",
   "description": "Bot-free Discord voice relay for Foundry VTT 14+",
-  "version": "14.1.0",
+  "version": "14.1.1",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
@@ -25,7 +25,7 @@
   ],
   "url": "https://github.com/SweetyHake/discord-relay",
   "manifest": "https://raw.githubusercontent.com/SweetyHake/discord-relay/refs/heads/main/module.json",
-  "download": "https://github.com/SweetyHake/discord-relay/releases/download/14.1.0/module.zip",
+  "download": "https://github.com/SweetyHake/discord-relay/releases/download/14.1.1/module.zip",
   "languages": [
     {
       "lang": "en",
