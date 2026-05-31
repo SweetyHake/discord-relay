@@ -6,6 +6,7 @@ import { DiscordMenu }   from "./apps/DiscordMenu.js";
 Hooks.once("init", () => {
   registerSettings();
   CONFIG[MODULE_ID] = { hooks: HOOKS };
+  CONFIG.DiscordBridge = CONFIG[MODULE_ID];
 });
 
 Hooks.once("setup", () => {
